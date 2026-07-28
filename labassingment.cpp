@@ -40,14 +40,12 @@ void identifyTokens(string input)
 
     while (i < len)
     {
-        // Skip whitespace
         if (input[i] == ' ' || input[i] == '\t')
         {
             i++;
             continue;
         }
 
-        // Identifier or Keyword
         if (isLetter(input[i]))
         {
             string token = "";
@@ -63,7 +61,6 @@ void identifyTokens(string input)
             continue;
         }
 
-        // Number / Constant
         if (isDigit(input[i]))
         {
             string token = "";
@@ -76,7 +73,6 @@ void identifyTokens(string input)
             continue;
         }
 
-        // Double-character operator <<
         if (input[i] == '<' && i + 1 < len && input[i + 1] == '<')
         {
             cout << "<< -> Operator" << endl;
@@ -84,7 +80,6 @@ void identifyTokens(string input)
             continue;
         }
 
-        // Double-character operator >>
         if (input[i] == '>' && i + 1 < len && input[i + 1] == '>')
         {
             cout << ">> -> Operator" << endl;
@@ -92,7 +87,6 @@ void identifyTokens(string input)
             continue;
         }
 
-        // Single-character operators
         if (input[i] == '+' || input[i] == '-' || input[i] == '*' ||
             input[i] == '/' || input[i] == '%' || input[i] == '=')
         {
@@ -101,7 +95,6 @@ void identifyTokens(string input)
             continue;
         }
 
-        // Punctuation (includes quote marks)
         if (isPunctuation(input[i]))
         {
             cout << input[i] << " -> Punctuation" << endl;
@@ -109,7 +102,6 @@ void identifyTokens(string input)
             continue;
         }
 
-        // Anything unrecognized, skip it
         i++;
     }
 }
