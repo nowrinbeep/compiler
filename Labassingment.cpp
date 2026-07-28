@@ -33,7 +33,6 @@ bool isKeyword(string token)
     return false;
 }
 
-// Keeps a plain list of every token already printed
 string seenTokens[500];
 int seenCount = 0;
 
@@ -61,7 +60,6 @@ void identifyTokens(string input)
             continue;
         }
 
-        // Identifier, Keyword, or string content (Constant)
         if (isLetter(input[i]))
         {
             string token = "";
@@ -84,8 +82,6 @@ void identifyTokens(string input)
             }
             continue;
         }
-
-        // Number / Constant
         if (isDigit(input[i]))
         {
             string token = "";
@@ -102,8 +98,7 @@ void identifyTokens(string input)
             }
             continue;
         }
-
-        // Double-character operator <<
+     
         if (input[i] == '<' && i + 1 < len && input[i + 1] == '<')
         {
             if (!alreadySeen("<<"))
@@ -115,7 +110,6 @@ void identifyTokens(string input)
             continue;
         }
 
-        // Double-character operator >>
         if (input[i] == '>' && i + 1 < len && input[i + 1] == '>')
         {
             if (!alreadySeen(">>"))
@@ -127,7 +121,6 @@ void identifyTokens(string input)
             continue;
         }
 
-        // Single-character operators
         if (input[i] == '+' || input[i] == '-' || input[i] == '*' ||
             input[i] == '/' || input[i] == '%' || input[i] == '=')
         {
@@ -141,7 +134,6 @@ void identifyTokens(string input)
             continue;
         }
 
-        // Punctuation (includes quote marks)
         if (isPunctuation(input[i]))
         {
             if (input[i] == '"')
