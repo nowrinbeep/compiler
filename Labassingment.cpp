@@ -24,7 +24,7 @@ bool isKeyword(string token)
     string keywordList[] = {"int", "float", "double", "string", "char",
                              "if", "else", "while", "for", "return",
                              "void", "true", "false", "main"};
-    int n = sizeof(keywordList) / sizeof(keywordList[0]);
+    int n = 14;
     for (int i = 0; i < n; i++)
     {
         if (token == keywordList[i])
